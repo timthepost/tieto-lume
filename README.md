@@ -59,7 +59,7 @@ What you will provide:
 ### Why?
 
 The author is a brain cancer survivor who is still employable, but not very keen on talking to 
-recruiters. To eliminate the bottlenecks of scheduling, and to build a fun and fully-interactive
-"Resume" style site on top of a hand-rolled RAG, of course! 
+recruiters. To eliminate the bottlenecks of scheduling and email tag, and to build a fun and 
+fully-interactive "Resume" style site on top of a hand-rolled RAG, of course! 
 
 Wouldn't everyone?
