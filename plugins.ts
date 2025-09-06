@@ -24,7 +24,6 @@ export default function (userOptions?: Options) {
 
   return (site: Lume.Site) => {
     site
-      .use(lightningcss())
       .use(basePath())
       .use(metas())
       .use(sitemap(options.sitemap))

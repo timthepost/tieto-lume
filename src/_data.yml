@@ -1,5 +1,5 @@
 lang: en
-
+layout: layouts/base.vto
 metas:
   site: Lume site
   twitter: ""
