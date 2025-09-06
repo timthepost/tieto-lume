@@ -1,1 +1,24 @@
 /* You can place utilities and overrides here */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: .5em 3em;
+  padding: 0; /* Reset default padding */
+  background-color: var(
+    --sl-color-neutral-0
+  ); /* Adapts to theme's base background (e.g., white in light, dark grey in dark) */
+  color: var(--sl-color-neutral-700, var(--sl-input-color)); /* Adapts to theme's default text color */
+  line-height: 1.5;
+}
+
+.container {
+  padding: 10px;
+  max-width: 100%; /* Or your preferred max-width */
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  /* Use a theme-aware color for the main heading */
+  color: var(--sl-color-neutral-900); /* Dark in light, lighter in dark */
+}
