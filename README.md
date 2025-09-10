@@ -2,12 +2,15 @@
 
 This repo will soon have a fully-functional, template-able and deployable RAG setup that uses
 Lume as a data store and web front-end, Tieto as a fast vector search powered prompt generator, 
-and any completion model that you want. It will support the Nomic API or a local embedding model, 
-as well as any OpenAI / llama compatible completion endpoint.
+and any completion model that you want. 
+
+It has a goal to support Featherless, OpenAI/Compat, WASM via LLamaEdge, Nomic, or local local llama 
+inference and embedding (or a mix of them).
 
 The author will be hositing his own phi-3 instance to power his professional / career site, 
 allowing recruiters to ask questions without having to schedule phone calls, which is what kicked
-off this madness.
+off this madness. He does, however, realize how much more awesome WASM would be, but also has to 
+ship something.
 
 Lume's router middleware will handle directing traffic to local or third party models for query and
 embedding needs (all .md / frontmatter content gets indexed at build), so this should run just fine
