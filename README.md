@@ -32,7 +32,7 @@ If you just want ***semantic search***, meaning you want something like a basic
 version of Algolia but you own 100% of the code:
 
  - You will need to have a free [Nomic Atlas][5] key, or the ability to run 
- the open source [Nomic Text v2][6] model (`.gguf format`) with llama.cpp[7]
+ the open source [Nomic Text v2][5] model (`.gguf format`) with [llama.cpp][6]
  or similar.
 
  - You will need to be able to host a Lume site on Deno Deploy or a VPS
@@ -44,3 +44,11 @@ provider (Featherless, OpenRouter, OpenAI, Anthropic, Etc).
 ## Current Status
 
 Still in development and not yet functional.
+
+ [1]: https://github.com/timthepost/tieto
+ [2]: https://github.com/lumeland/lume
+ [3]: https://modelcontextprotocol.io/docs/getting-started/intro
+ [4]: https://lume.land/plugins/router/
+ [5]: https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe
+ [6]: https://github.com/ggml-org/llama.cpp
+ 
