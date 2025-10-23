@@ -1,68 +1,46 @@
-# Retrieval Augmented Generation Using Lume & Tieto
+# Semantic Retrieval Augmented Generation With Lume
 
-This repo will soon have a fully-functional, template-able and deployable RAG setup that uses
-Lume as a data store and web front-end, Tieto as a fast vector search powered prompt generator, 
-and any completion model that you want. 
+This is a project to bring [Tieto][1]'s flat-file embedding storage and 
+semantic matching capabilities to [Lume][2]'s powerful document processing
+and generation capabilities and data model in order to produce a semantic
+data store that runs happily at the edge with few resources.
 
-It has a goal to support Featherless, OpenAI/Compat, WASM via LLamaEdge, Nomic, or local local llama 
-inference and embedding (or a mix of them).
+That sounds like a mouth full, so it's easier to tell you what you can do
+with it instead:
 
-The author will be hositing his own phi-3 instance to power his professional / career site, 
-allowing recruiters to ask questions without having to schedule phone calls, which is what kicked
-off this madness. He does, however, realize how much more awesome WASM would be, but also has to 
-ship something.
+ - Build powerful semantic search into your document site or blog that you
+ can fine-tune; use a free Nomic Atlas key for embedding, or (with a VPS
+ and 256 MB of RAM) do your own embeddings
 
-Lume's router middleware will handle directing traffic to local or third party models for query and
-embedding needs (all .md / frontmatter content gets indexed at build), so this should run just fine
-for absolutely free on Deno Deploy or Netlify since it just uses the file system.
+ - Provide verbatim, semantic-accessible of LLM conversations through [MCP][3]
+ interaction (using Lume's [router middleware][4])
 
-Could be conceivably souped up even more with DenoKV integration (just remember that clustered indexing
-is planned for Tieto, and will be faster since it uses the FS and simple cosine similiarity for the 
-first pass).
+ - Provide LLMs semantically-accessible short-term memory that you host
+ through MCP.
 
-## Shoelace Components Ahead
+ - Easily create "Librarian" agents to narrate any given text corpus, useful
+ for corporate assistants. 
 
-I didn't want to marry this to any specific CSS or JS / TS platform beyond the very tight coupling 
-with Deno. So, everything in this is being put together with Shoelace. It's a fast path to something
-at least mostly accessible that can evolve quickly without much sweat or design overhead. It has 
-icons, components, whatever - and it's solid. 
+Because Tieto adds no dependencies on top of Lume, it doesn't alter the existing 
+SOC footprint for most companies, so it's an ideal RAG for teams that just need 
+to have access to something that works (runs fine on an old 13 chrome book, Nomic
+Text v2 1.3B model included!)
 
-## Lume = Perfect Match For Tieto
+## Requirements
 
-Lume and Tieto (very intentionally) both use the same common frontmatter / markdown format that 
-most other documentation and content orientesd sites use. This was no accident, I wanted Tieto to 
-be a drop-in RAG that's easy to deploy to any docs site or personal blog. This is me going further
-in that implementation direction.
+If you just want ***semantic search***, meaning you want something like a basic 
+version of Algolia but you own 100% of the code:
 
-What makes Lume stand out as the best candidate is the very smart data layer, the ability to run 
-basic functions in server middleware and the extremely flexible design. Tieto just sits right on 
-top of a Lume instance with no real modification.
+ - You will need to have a free [Nomic Atlas][5] key, or the ability to run 
+ the open source [Nomic Text v2][6] model (`.gguf format`) with llama.cpp[7]
+ or similar.
 
-## This is Minimal. M - I - N - I - M - A
+ - You will need to be able to host a Lume site on Deno Deploy or a VPS
 
-So much so that I even left off the last consonant in the heading. No css processors or anything 
-beyond the bare minimum. Shoelace (light + dark) is loaded, then `/style.css` is loaded which 
-is intended for whatever local styles are needed on top of Shoelace.
+If you also want ***completion***, as in ***retrieval-augmented completion (RAG)***,
+then you will also need to be able to provide a completion model key and 
+provider (Featherless, OpenRouter, OpenAI, Anthropic, Etc).
 
-What the project will provide:
+## Current Status
 
- - Basic Lume instance pre-configured with Tieto
- - Front-end to query for generation (chat interface to interact with librarian model)
- - Links to source material used for generation in chat (produced by Lume, Tieto indexes the markdown source)
- - API to query RAG directly (OpenAI completion compatible)
- - API for MCP (Model Conetext Protocol) service with ChatGPT friendly shim route that hides most tools
-
-What you will provide:
-
- - Markdown docs organized as Tieto topics (directories full of related markdown files)
- - Deno (with or without Deno Deploy)
- - API keys for a good embedding model and completion model (can be self-hosted GGUF, too) 
- - Some vision as to what you can accomplish with what the project provides
-
-### Why?
-
-The author is a brain cancer survivor who is still employable, but not very keen on talking to 
-recruiters. To eliminate the bottlenecks of scheduling and email tag, and to build a fun and 
-fully-interactive "Resume" style site on top of a hand-rolled RAG, of course! 
-
-Wouldn't everyone?
+Still in development and not yet functional.
