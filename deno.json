@@ -24,7 +24,7 @@
       "description": "Run the changelog utility to format the CHANGELOG.md file",
       "command": "deno run --allow-read --allow-write https://deno.land/x/changelog@v2.6.2/bin.ts"
     },
-    "mock": "deno run -A ./src/serve.ts"
+    "mock": "deno run -P=lume ./src/serve.ts"
   },
   "compilerOptions": {
     "types": [
