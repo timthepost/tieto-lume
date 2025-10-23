@@ -23,7 +23,8 @@
     "changelog": {
       "description": "Run the changelog utility to format the CHANGELOG.md file",
       "command": "deno run --allow-read --allow-write https://deno.land/x/changelog@v2.6.2/bin.ts"
-    }
+    },
+    "mock": "deno run -A ./src/serve.ts"
   },
   "compilerOptions": {
     "types": [
@@ -61,13 +62,7 @@
         "deno.land:443",
         "esm.sh:443"
       ],
-      "net": [
-        "0.0.0.0",
-        "jsr.io:443",
-        "cdn.jsdelivr.net:443",
-        "data.jsdelivr.com:443",
-        "registry.npmjs.org:443"
-      ],
+      "net": true,
       "env": true,
       "run": true,
       "ffi": true,

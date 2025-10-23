@@ -1,6 +1,4 @@
 import Router from "lume/middlewares/router.ts";
-
-const _DEV_MODE = Deno.env.get("LUME_DRAFTS") || false;
 const router = new Router();
 
 /* Filter out XSS attempts */
