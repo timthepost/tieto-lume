@@ -1,6 +1,6 @@
-import lightningcss from "lume/plugins/lightningcss.ts";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
+import { tietoIngest } from "./src/_plugins/tieto/tieto.ts";
 import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
 import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
 import { merge } from "lume/core/utils/object.ts";
@@ -26,6 +26,7 @@ export default function (userOptions?: Options) {
     site
       .use(basePath())
       .use(metas())
+      .use(tietoIngest())
       .use(sitemap(options.sitemap))
       .use(favicon(options.favicon))
       .add("uploads")
