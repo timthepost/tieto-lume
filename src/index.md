@@ -23,9 +23,17 @@ it will let you do instead:
  useful for corporate assistants. 
 
 Because Tieto adds no dependencies on top of Lume, it doesn't alter the 
-existing SOC footprint for most companies, so it's an ideal RAG for teams 
-that just need to have access to something that works (runs fine on an 
-old 13 chrome book, Nomic Text v2 1.3B model included!)
+existing SOC footprint for most companies. For those that can self-host 
+the embedding model which just requires 350mb of RAM, you can have
+semantic search and completion without any third-party overhead.
+
+There's also the possibility of [running inference via WASM][7], which 
+would be ideal for _at least_ the embedding end of this; completion 
+would still be theoretically huge and laggy.
+
+Being able to set up dev environments and stay within SOC guidelines is
+harder than some might imagine, and was one of the motivations to make
+something that had basic functionality, just totally self-contained.
 
 ## Requirements
 
@@ -62,4 +70,5 @@ Still in development and not yet functional.
  [4]: https://lume.land/plugins/router/
  [5]: https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe
  [6]: https://github.com/ggml-org/llama.cpp
+ [7]: https://wasmedge.org/docs/develop/rust/wasinn/llm_inference/
  
