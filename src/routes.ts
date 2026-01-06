@@ -16,13 +16,9 @@ function _sanitizeString(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-function cstr(str: string): [Uint8Array, Deno.PointerValue] {
-  const buf = new Uint8Array([...new TextEncoder().encode(str), 0]);
-  return [buf, Deno.UnsafePointer.of(buf)];
-}
 const wd = Deno.cwd();
 const temp_path  = wd + "/src/splinter_test_bus";
-const [test_bus] = cstr(temp_path);
+const conn = Splinter.open(temp_path);
 
 /* Define routes for your site here */
 
@@ -33,7 +29,6 @@ router.get("/api", ({ _request }) => {
 });
 
 router.get("/splinter-check", ({ _request }) => {
-  const conn = Splinter.open(temp_path);
   conn.set("test_key", "test value");
   const val = conn.getString("test_key");
   return new Response(JSON.stringify({ value: val }), { status: 200 });
