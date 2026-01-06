@@ -5,7 +5,10 @@
 // This needs to be updated to reflect the system path if installed
 // system-wide.
 
-export const Libsplinter = Deno.dlopen("libsplinter_p.so", {
+const wd = Deno.cwd();
+const temp_path  = wd + "/src/libsplinter_p.so";
+
+export const Libsplinter = Deno.dlopen(temp_path, {
   "splinter_create": {
     parameters: ["buffer", "usize", "usize"],
     result: "i32",
